@@ -1,7 +1,4 @@
-demoINNOROBO/build
-periPersonalSpace/build
-chessEyeTest/build
+build
 .nfs*
 *~
 *kdev*
-periPersonalSpace/app/scripts/playground
