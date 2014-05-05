@@ -1,5 +1,7 @@
-CMakeCache.txt
-CMakeFiles
-Makefile
-cmake_install.cmake
-install_manifest.txt
+demoINNOROBO/build
+periPersonalSpace/build
+chessEyeTest/build
+.nfs*
+*~
+*kdev*
+periPersonalSpace/app/scripts/playground
