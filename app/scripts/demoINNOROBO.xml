@@ -1,0 +1,54 @@
+<application>
+    <name>demoINNOROBO</name>
+
+    <dependencies>
+        <port>/icub/camcalib/left/out</port>
+        <port>/icub/camcalib/right/out</port>
+    </dependencies>
+
+    <module>
+        <name>yarpview</name>
+        <parameters>--name /demoINN/left --x 0 --y   0</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+        <tag>yarpview</tag>
+    </module>
+    <module>
+        <name>yarpview</name>
+        <parameters>--name /demoINN/right --x 0 --y 360 </parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+        <tag>yarpview</tag>
+    </module>
+    <module>
+        <name>iSpeak</name>
+        <node>icubsrv</node>
+        <tag>iSpk</tag>
+    </module>
+   
+    <connection>
+        <from>/icub/camcalib/left/out</from>
+        <to>/demoINNOROBO/imageL:i</to>
+        <protocol>udp</protocol>
+    </connection>
+    <connection>
+        <from>/icub/camcalib/right/out</from>
+        <to>/demoINNOROBO/imageR:i</to>
+        <protocol>udp</protocol>
+    </connection>
+    <connection>
+        <from>/demoINNOROBO/imageR:o</from>
+        <to>/demoINN/right</to>
+        <protocol>udp</protocol>
+    </connection>
+    <connection>
+        <from>/demoINNOROBO/imageL:o</from>
+        <to>/demoINN/left</to>
+        <protocol>udp</protocol>
+    </connection>
+    <connection>
+        <from>/demoINNOROBO/info:o</from>
+        <to>/iSpeak</to>
+        <protocol>tcp</protocol>
+    </connection>
+</application>
